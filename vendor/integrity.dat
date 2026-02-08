@@ -1,0 +1,7 @@
+ESP32Async/ESPAsyncWebServer@^3.8.1
+wire
+ESP32Async/AsyncTCP@^3.4.9
+fbiego/esp32time@^2.0.6
+jgromes/RadioLib@^7.4.0
+bblanchon/ArduinoJson@^7.4.2
+mikalhart/TinyGPSPlus@1.0.3

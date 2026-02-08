@@ -13,6 +13,13 @@ current_year = str(datetime.now().year)
 copyright = f"{current_year}, {author}"
 
 # -- General configuration ---------------------------------------------------
+language = 'en'
+locale_dirs = ['locales/']   # path is relative to conf.py
+gettext_compact = False     # optional
+# sphinx-intl needs this to find locale_dirs if it's not explicitly passed
+# but it should be able to read it from conf.py
+# If it fails, we might need to pass it via CLI
+
 extensions = [
     'myst_parser',
     'sphinx_copybutton',

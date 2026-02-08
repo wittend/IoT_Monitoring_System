@@ -9,6 +9,7 @@
 # Local Python virtual envs
 .venv/
 venv/
+.docs_venv/
 
 # Python cache
 __pycache__/

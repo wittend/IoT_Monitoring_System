@@ -42,7 +42,7 @@ This repo includes a host-native test environment so you can run fast unit tests
 ## Quickstart
 1. Wire RM3100 and MCP9808 to I2C (SDA=GPIO5, SCL=GPIO6 on XIAO ESP32S3).
 2. Connect L76K to UART1 (RX=GPIO44, TX=GPIO43) and PPS to GPIO2.
-3. Attach the Wio SX1262 SPI lines as defined in `mag_xiao_s3_ard.ino` (NSS=3, DIO1=4, NRST=1, BUSY=7; default SPI pins).
+3. Attach the Wio SX1262 SPI lines as defined in `src/mag_xiao_s3.cpp` (NSS=3, DIO1=4, NRST=1, BUSY=7; default SPI pins).
 4. Build and flash the firmware (see above).
 5. On first boot or when configuration mode is triggered (button on GPIO42), connect to the device AP to enter configuration.
 
