@@ -11,7 +11,7 @@ This document describes how to keep PlatformIO Core, platforms, frameworks, and 
 We favor safe, routine updates that pull in bug fixes and minor improvements without risking large breaking changes.
 
 - Platform policy: keep `platform = espressif32` unpinned to track the latest stable platform release.
-- Library policy: keep caret version pins (e.g., `name@^x.y.z`) so minor/patch updates are allowed, but major breaking changes are held back.
+- Library policy: use libraries stored in the `vendor/` directory, managed via `lib_extra_dirs = vendor`.
 - Testing: run host-native unit tests and a firmware build after updates.
 
 If a breaking change slips in, temporarily pin the platform to the last known good version until it’s resolved.
@@ -56,16 +56,32 @@ Use the command that matches how you installed PlatformIO:
   ```
 - VS Code IDE: update the “PlatformIO IDE” extension from Marketplace, then verify in the built-in terminal with `pio --version`.
 
+## Ensuring the Correct PIO Core Version
+
+If `pio --version` reports an old version or you see warnings about multiple PIO Cores, ensure that the version installed via `pipx` (in `~/.local/bin`) takes precedence over older system-provided versions (like those in `/usr/bin` from APT).
+
+1. Add `~/.local/bin` to the front of your `PATH`:
+   ```bash
+   export PATH="$HOME/.local/bin:$PATH"
+   ```
+2. Verify:
+   ```bash
+   which pio
+   # Expected: /home/dave/.local/bin/pio (or similar local path)
+   ```
+
 Notes:
+- `pipx upgrade platformio` is the preferred way to keep the Core up to date.
 - `pio upgrade` installs the latest stable Core (avoid `--dev` unless explicitly testing pre-releases).
 - `pio system info` prints useful environment diagnostics.
 
 ## Project Dependency Updates
 
-- Update everything (platforms, frameworks, toolchains, libs):
+- Update PlatformIO platforms, frameworks, and toolchains:
   ```bash
   pio update
   ```
+- Libraries are maintained in the `vendor/` directory. To update a library, replace its files in the `vendor/` directory with the new version.
 - Show details for the ESP32 platform:
   ```bash
   pio platform show espressif32
@@ -73,10 +89,6 @@ Notes:
 - Update only platforms:
   ```bash
   pio platform update
-  ```
-- Update globally-installed libraries (if you use any):
-  ```bash
-  pio lib -g update
   ```
 
 ## Verify Resolved Versions
@@ -91,25 +103,25 @@ Notes:
   pio lib list
   ```
 
-## Current Versioning Policy in platformio.ini (balanced)
+## Current Configuration in platformio.ini
 
 - `platform = espressif32` (no explicit version): track latest stable platform.
-- Libraries use caret pins to allow minor/patch updates automatically. Example (excerpt):
+- Libraries are located in the `vendor/` folder and included via `lib_extra_dirs`:
 
 ```ini
 [env:seeed_xiao_esp32s3]
 platform = espressif32
 board = seeed_xiao_esp32s3
 framework = arduino
+lib_extra_dirs = vendor
 lib_deps =
     wire
-    bblanchon/ArduinoJson@^7.4.2
-    jgromes/RadioLib@^7.4.0
-    ESP32Async/ESPAsyncWebServer@^3.8.1
-    ESP32Async/AsyncTCP@^3.4.9
-    mikalhart/TinyGPSPlus@^1.0.3
-    lorol/LittleFS_esp32@^1.0.6
-    fbiego/esp32time@^2.0.6
+    ArduinoJson
+    RadioLib
+    ESPAsyncWebServer
+    AsyncTCP
+    TinyGPSPlus
+    esp32time
 ```
 
 If you encounter instability, you can temporarily pin the platform, for example:
