@@ -1,11 +1,10 @@
-//=========================================================================
-// MCP9808.h
-//
-// An interface for the MCP9808 precision temperature sensor from Microchip.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-// Copyright (C) 2020-2025 David Witten
-//=========================================================================
+/**
+ * @file MCP9808.h
+ * @brief Interface for the MCP9808 precision temperature sensor from Microchip.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright (C) 2020-2025 David Witten
+ */
 #ifndef MCP9808_H
 #define MCP9808_H
 //-----------------------------------

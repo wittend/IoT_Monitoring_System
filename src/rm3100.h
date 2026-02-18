@@ -1,15 +1,13 @@
-//=========================================================================
-// rm3100.h
-//
-// An interface for the RM3100 3-axis magnetometer from PNI Sensor Corp.
-//
-// SPDX-License-Identifier: GPL-3.0-or-later
-// Copyright (C) 2023-2025 David Witten
-//
-// Note:        replaces i2c.c (using file system calls to read(), write(), etc.
-//              with calls to pigpio.
-//              Also adding callbacks on GPIO27 for PPS rising edge.
-//=========================================================================
+/**
+ * @file rm3100.h
+ * @brief Interface for the RM3100 3-axis magnetometer from PNI Sensor Corp.
+ *
+ * Replaces i2c.c using file system calls to read(), write(), etc.
+ * with calls to pigpio. Also adding callbacks on GPIO27 for PPS rising edge.
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ * Copyright (C) 2023-2025 David Witten
+ */
 #ifndef SWX3100DEFS_h
 #define SWX3100DEFS_h
 

@@ -4,17 +4,17 @@
 # Project
 PROJECT_NAME           = "mag-xiao-s3"
 PROJECT_BRIEF          = "Seeed XIAO ESP32S3 magnetometer node (RM3100 + MCP9808 + LoRa + GNSS PPS)"
-OUTPUT_DIRECTORY       = docs/doxygen
+OUTPUT_DIRECTORY       = "docs/doxygen"
 CREATE_SUBDIRS         = NO
 
 # Input
-INPUT                  = src/mag_xiao_s3
-INPUT_RECURSIVE        = YES
-FILE_PATTERNS          = *.h \
-                         *.hpp \
-                         *.c \
-                         *.cpp \
-                         *.ino
+INPUT                  = .
+RECURSIVE              = YES
+FILE_PATTERNS          = src/*.h \
+                         src/*.cpp \
+                         include/*.h \
+                         lib/*.h \
+                         lib/*.cpp
 EXCLUDE_PATTERNS       = */.pio/*
 
 # Extraction

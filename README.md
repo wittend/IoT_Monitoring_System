@@ -1,8 +1,10 @@
 # mag-xiao-s3 (Seeed XIAO ESP32S3 Magnetometer Node)
 
-SPDX-License-Identifier: GPL-3.0-or-later
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3+-blue.svg)](LICENSE)
+[![PlatformIO](https://img.shields.io/badge/PlatformIO-ESP32-success)](platformio.ini)
+[![Docs](https://img.shields.io/badge/docs-Read%20the%20Docs-brightgreen)](https://mag-xiao-s3.readthedocs.io/)
 
-A small, battery/solar-powered firmware for the Seeed Studio XIAO ESP32S3 that:
+A small, battery/solar-powered firmware for the Seeed Studio XIAO ESP32S3 board.
 - Samples a PNI RM3100 3‑axis magnetometer and an MCP9808/MCP9804 temperature sensor at 1 Hz
 - Uses GNSS (L76K) PPS for timing and optional RTC discipline
 - Transmits readings via LoRa (SX1262 / Wio-SX1262)
@@ -64,6 +66,8 @@ Readings are sent as JSON:
   ```
 - Build Sphinx docs locally:
   ```bash
+  mkdir -p docs/doxygen
+  doxygen Doxyfile
   python -m pip install -r docs/requirements.txt
   sphinx-build -b html docs/source docs/_build/html
   ```

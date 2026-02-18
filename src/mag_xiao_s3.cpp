@@ -1,5 +1,9 @@
-/*
- * mag_xiao_s3_ard.ino — Magnetometer firmware for Seeed XIAO ESP32S3
+/**
+ * @file mag_xiao_s3.cpp
+ * @brief Magnetometer firmware for Seeed XIAO ESP32S3.
+ *
+ * Samples a PNI RM3100 3-axis magnetometer and an MCP9808 temperature sensor,
+ * uses GNSS PPS for timing, and transmits readings via LoRa.
  *
  * SPDX-License-Identifier: GPL-3.0-or-later
  * Copyright (C) 2020-2025 David Witten
