@@ -1,0 +1,29 @@
+services:
+  collector:
+    build:
+      context: .
+      dockerfile: services/collector/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      LOG_LEVEL: INFO
+      # CORS_ORIGINS: "https://dashboard.example.com"  # restrict in production
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  sensor-agent:
+    build:
+      context: .
+      dockerfile: services/sensor_agent/Dockerfile
+    environment:
+      COLLECTOR_URL: http://collector:8000
+      SENSOR_INTERVAL: "5"
+      SENSOR_LOCATION: docker
+      LOG_LEVEL: INFO
+    depends_on:
+      collector:
+        condition: service_healthy
+    restart: on-failure
