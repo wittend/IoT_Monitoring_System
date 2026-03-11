@@ -1,0 +1,3 @@
+[submodule "services/mag-usb"]
+	path = services/mag-usb
+	url = https://github.com/wittend/mag-dash.git
