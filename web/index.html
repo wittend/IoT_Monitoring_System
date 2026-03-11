@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mag-dash</title>
+    <link rel="icon" href="/web/icon.svg" />
+    <link rel="stylesheet" href="/web/styles.css" />
+    <!-- Tabler Icons (webfont): use local vendored assets only (strict offline) -->
+    <link
+      rel="stylesheet"
+      href="/web/vendor/tabler/icons-webfont/3.35.0/tabler-icons.min.css"
+    />
+    <script type="module" src="/web/app.js"></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="ti ti-current-location"></span>
+        <span>mag-dash</span>
+      </div>
+      <nav id="tabs" class="tabs" role="tablist" aria-label="Data sources">
+        <!-- Tabs added dynamically -->
+      </nav>
+      <div class="actions">
+        <button
+          id="configToggle"
+          title="Hide config (Ctrl+Shift+C)"
+          class="icon-btn"
+          aria-label="Toggle config panel"
+          aria-pressed="false"
+        >
+          <span class="ti ti-layout-sidebar-right-collapse"></span>
+        </button>
+        <button
+          id="themeToggle"
+          title="Toggle light/dark"
+          class="icon-btn"
+          aria-label="Toggle theme"
+        >
+          <span class="ti ti-moon"></span>
+        </button>
+      </div>
+    </header>
+    <main id="content" class="content" tabindex="0" aria-live="polite">
+      <!-- Panels added dynamically -->
+    </main>
+    <noscript>
+      This application requires JavaScript.
+    </noscript>
+  </body>
+</html>
