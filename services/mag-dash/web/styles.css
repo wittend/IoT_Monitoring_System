@@ -1,0 +1,537 @@
+:root {
+  color-scheme: light dark;
+  /* Softer light palette for improved readability */
+  --bg: #f7f8fa; /* was #ffffff */
+  --fg: #111827; /* slightly deeper text for contrast */
+  --muted: #6b7280; /* neutral-muted that still passes on white */
+  --accent: #2563eb; /* brand accent */
+  --surface: #ffffff; /* cards/tabs/buttons surface */
+  --border: #d7dbe3; /* was #e5e7eb; a bit stronger for separation */
+  --border-strong: #b7beca; /* used for interactive controls */
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+  --bg: #0b0f14;
+  --fg: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #60a5fa;
+  --surface: #0f1720;
+  --border: #1f2937;
+  --border-strong: #2a3647;
+  --shadow: none;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji";
+  font-size: clamp(16px, 1.1vw + 12px, 18px);
+  line-height: 1.45;
+  background: var(--bg);
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex: 0 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.brand .ti {
+  color: var(--accent);
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  margin-inline: 12px;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-gutter: stable both-edges;
+}
+
+.tab {
+  padding: 10px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  background: var(--surface);
+  cursor: pointer;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--fg);
+  box-shadow: var(--shadow);
+}
+
+.tab:hover {
+  background: #f3f4f6;
+}
+.tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.tab[aria-selected="true"] {
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--fg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06), 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.icon-btn {
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--fg);
+  border-radius: 10px;
+  padding: 8px 10px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.icon-btn:hover {
+  background: #f3f4f6;
+}
+.icon-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Compact icon button variant (for inline clear-history controls) */
+.icon-btn--sm {
+  padding: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: inline-grid;
+  place-items: center;
+  line-height: 1;
+}
+.icon-btn--sm .ti {
+  font-size: 14px;
+}
+
+/* Tab title: slightly smaller and ellipsized within tab */
+.tab .tab-title {
+  font-size: 0.95em;
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+}
+
+/* Close icon inside tab */
+.tab .tab-close {
+  margin-left: 6px;
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.tab .tab-close:hover {
+  background: #e5e7eb;
+  opacity: 1;
+}
+.tab .tab-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.tab .tab-close .ti {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.content {
+  --left-width: 360px; /* will be updated at runtime per active pane */
+  --splitter-width: 6px; /* adjustable so we can collapse the splitter too */
+  padding: 16px;
+  display: grid;
+  grid-template-columns:
+    var(--left-width) var(--splitter-width) 1fr; /* left | splitter | right */
+  /* Top row auto (fits plots' min-heights); bottom row takes the rest, with a 35% minimum by fraction */
+  grid-template-rows: auto minmax(35%, 1fr);
+  gap: 16px;
+  flex: 1 1 auto;
+  min-height: 0; /* allow children to scroll inside */
+  overflow: hidden;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.panel {
+  display: none;
+}
+.panel[aria-hidden="false"] {
+  display: contents;
+}
+
+.vsplit {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3; /* span both rows */
+  align-self: stretch;
+  width: var(--splitter-width);
+  cursor: col-resize;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-bottom: none;
+  border-radius: 8px;
+  touch-action: none; /* allow pointer drag without scrolling */
+}
+
+/* Collapsed layout: hide left config form and minimize splitter width */
+.panel.collapsed .left-pane {
+  display: none;
+}
+.panel.collapsed .vsplit {
+  cursor: pointer; /* acts as a show-handle */
+}
+
+/* Explicit grid placement for source pane areas */
+.left-pane {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3; /* span both rows so left fills full height */
+  justify-self: start;
+  width: 100%;
+  min-width: min-content; /* never smaller than content */
+  overflow: hidden; /* prevent children from bleeding across splitter */
+}
+
+.right-pane {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+  min-height: 0; /* allow charts area to size properly */
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.field input, .field select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--fg);
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  font-family: inherit;
+}
+.field > label {
+  grid-column: 1;
+}
+/* Place all non-label controls/content into column 2 */
+.field > :not(label) {
+  grid-column: 2;
+}
+.row {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--fg);
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: var(--shadow);
+  font-family: inherit;
+}
+.btn.primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, minmax(120px, 1fr)) 28px;
+  gap: 12px;
+  min-height: 0;
+}
+.chart {
+  height: auto;
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+.chart canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.chart .label {
+  position: absolute;
+  left: 8px;
+  top: 6px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* Time axis (shared X scale in seconds) */
+.time-axis {
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  padding: 0;
+  position: relative;
+  min-height: 24px;
+  box-shadow: var(--shadow);
+}
+.time-axis canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.history.card {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.table th, .table td {
+  border: 1px solid var(--border);
+  padding: 6px 8px;
+  color: var(--fg);
+  background: var(--surface);
+}
+.table thead th {
+  position: sticky;
+  top: 0;
+  background: var(--surface);
+}
+.history-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  display: block;
+}
+.history-body table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Narrow, aligned index column */
+.table td.col-idx, .table th:first-child {
+  width: 0.1%; /* shrink to fit */
+  white-space: nowrap;
+  text-align: right;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Ensure the left-hand pane (form card) is flush-left and fills its column */
+.panel[aria-hidden="false"] > .card:first-child {
+  justify-self: start;
+  width: 100%;
+}
+
+/* Config panel should not be affected by splitter; make it span comfortably */
+.panel-config[aria-hidden="false"] > .card {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  justify-self: start;
+  align-self: stretch;
+  height: 100%;
+  min-height: 0;
+  overflow: auto;
+  max-width: 960px; /* comfortable reading width */
+}
+
+/* Prevent overflow in config content and cap field widths */
+.panel-config .card {
+  overflow: auto;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.panel-config .field {
+  grid-template-columns: 200px minmax(0, 1fr);
+}
+.panel-config .field > :is(input, select, textarea) {
+  width: 100%;
+  max-width: min(50%, 560px); /* do not exceed 50% of workspace */
+}
+
+/* Utility: fixed character width inputs (e.g., Skip header lines) */
+.w-ch-3 {
+  width: 3.5ch;
+  max-width: 3.5ch;
+  flex: 0 0 auto;
+}
+
+/* Containment and sizing for source pane inputs to prevent overflow */
+.left-pane .field {
+  grid-template-columns: 160px minmax(0, 1fr);
+}
+.left-pane .field > :is(input, select, textarea) {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+.left-pane input[type="url"],
+.left-pane input[type="text"] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.left-pane input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+}
+.left-pane .row {
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Inline SVG spinner (shown during file loading) */
+.spinner {
+  width: 20px;
+  height: 20px;
+  color: var(--accent);
+  display: none; /* default hidden; toggled inline in JS */
+}
+.spinner circle {
+  stroke-dasharray: 90 150;
+  stroke-dashoffset: 0;
+  transform-origin: 50% 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.left-pane input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+}
+.left-pane .row {
+  flex-wrap: wrap;
+}
+
+/* Global sizing stability */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Thin separator below the Mode field to distinguish from other inputs */
+.left-pane .field-sep {
+  height: 1px;
+  background: var(--border);
+  border: 0;
+  margin: 6px 0 12px 0;
+}
+
+/* ==============================
+   File input: icon-only trigger
+   ==============================
+   Replace the default "Choose File" text button with a compact icon-only
+   button positioned at the far left, with spacing before the filename.
+   We use ::file-selector-button (and the WebKit fallback) to style the
+   native button. The filename text remains visible and unobscured. */
+.left-pane input[type="file"]::file-selector-button,
+.left-pane input[type="file"]::-webkit-file-upload-button {
+  /* Hide the default label text while keeping the control accessible */
+  font-size: 0;
+  line-height: 0;
+  /* Shape and size */
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  margin: 0 10px 0 0; /* space between icon button and filename */
+  border-radius: 8px;
+  border: 1px solid var(--border-strong);
+  background-color: var(--surface);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  /* Center a small folder/file-open glyph */
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+  /* Light theme default icon color baked into the data URI */
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='%23111827'><path d='M10 4l2 2h6a2 2 0 012 2v2h-2V8h-6.343l-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2h6v-2H6V8h3.657l.343.343V8h10v4h-2v-2h-8v10h2v-6h8l2 6h2l-2.667-8H12v-2h10V8a4 4 0 00-4-4h-6l-2-2H6a4 4 0 00-4 4v10a4 4 0 004 4h6v-2H6a2 2 0 01-2-2V8a2 2 0 012-2h4z'/></svg>");
+}
+
+.left-pane input[type="file"]::file-selector-button:hover,
+.left-pane input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #f3f4f6;
+}
+
+.left-pane input[type="file"]::file-selector-button:focus-visible,
+.left-pane input[type="file"]::-webkit-file-upload-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Dark theme: swap the embedded SVG to a light fill for contrast */
+[data-theme="dark"] .left-pane input[type="file"]::file-selector-button,
+[data-theme="dark"] .left-pane input[type="file"]::-webkit-file-upload-button {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='%23e5e7eb'><path d='M10 4l2 2h6a2 2 0 012 2v2h-2V8h-6.343l-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2h6v-2H6V8h3.657l.343.343V8h10v4h-2v-2h-8v10h2v-6h8l2 6h2l-2.667-8H12v-2h10V8a4 4 0 00-4-4h-6l-2-2H6a4 4 0 00-4 4v10a4 4 0 004 4h6v-2H6a2 2 0 01-2-2V8a2 2 0 012-2h4z'/></svg>");
+}
+
+/* Ensure the input content (filename) has room and ellipsizes gracefully */
+.left-pane input[type="file"] {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
