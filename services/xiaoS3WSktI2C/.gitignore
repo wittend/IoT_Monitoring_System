@@ -1,0 +1,15 @@
+# PlatformIO
+.pio
+.pioenvs
+.piolibdeps
+.clang_complete
+.gcc-flags.json
+# ESP-IDF
+sdkconfig
+sdkconfig.old
+# Python
+venv/
+__pycache__/
+*.py[cod]
+# Sphinx
+docs/build/
