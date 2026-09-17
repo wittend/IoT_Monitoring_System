@@ -1,0 +1,37 @@
+.pio
+
+
+# PlatformIO build outputs
+.pio/
+.pioenvs/
+.piolibdeps/
+
+# Local Python virtual envs
+.venv/
+venv/
+.docs_venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# Sphinx (HTML) build directory
+/docs/_build/
+
+# Doxygen generated artifacts
+/docs/doxygen/html/
+/docs/doxygen/xml/
+/docs/doxygen/latex/
+
+# IDE project files
+.vscode/
+.idea/
+
+# OS-generated files
+.DS_Store
+Thumbs.db

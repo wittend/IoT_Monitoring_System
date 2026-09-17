@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, David Witten and contributors
+# This file is distributed under the same license as the mag-xiao-s3
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mag-xiao-s3 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-08 10:49-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ro\n"
+"Language-Team: ro <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100"
+" < 20)) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/hardware.md:5
+msgid "Hardware"
+msgstr ""
+
+#: ../../source/hardware.md:7
+msgid ""
+"The project targets the Seeed Studio XIAO ESP32S3 and integrates these "
+"peripherals:"
+msgstr ""
+
+#: ../../source/hardware.md:9
+msgid "PNI RM3100-CB magnetometer (I2C)"
+msgstr ""
+
+#: ../../source/hardware.md:10
+msgid "Microchip MCP9808/MCP9804 temperature sensor (I2C)"
+msgstr ""
+
+#: ../../source/hardware.md:11
+msgid "Seeed L76K GNSS module (UART + PPS)"
+msgstr ""
+
+#: ../../source/hardware.md:12
+msgid "Seeed Wio SX1262 (LoRa)"
+msgstr ""
+
+#: ../../source/hardware.md:13
+msgid ""
+"Power: battery + small solar panel (with appropriate charge/PMIC "
+"circuitry)"
+msgstr ""
+
+#: ../../source/hardware.md:15
+msgid "Pins (XIAO ESP32S3)"
+msgstr ""
+
+#: ../../source/hardware.md:16
+msgid "I2C: `SDA=GPIO5`, `SCL=GPIO6`"
+msgstr ""
+
+#: ../../source/hardware.md:17
+msgid "GNSS UART1: `RX=GPIO44`, `TX=GPIO43`"
+msgstr ""
+
+#: ../../source/hardware.md:18
+msgid "GNSS PPS: `GPIO2`"
+msgstr ""
+
+#: ../../source/hardware.md:19
+msgid "LoRa (SX1262 via Wio):"
+msgstr ""
+
+#: ../../source/hardware.md:20
+msgid "`NSS=GPIO3`"
+msgstr ""
+
+#: ../../source/hardware.md:21
+msgid "`DIO1=GPIO4`"
+msgstr ""
+
+#: ../../source/hardware.md:22
+msgid "`NRST=GPIO1`"
+msgstr ""
+
+#: ../../source/hardware.md:23
+msgid "`BUSY=GPIO7`"
+msgstr ""
+
+#: ../../source/hardware.md:24
+msgid "SPI: default pins (MOSI=GPIO9, MISO=GPIO8, SCK=GPIO10)"
+msgstr ""
+
+#: ../../source/hardware.md:25
+msgid "Config button: `GPIO42` (enters configuration portal)"
+msgstr ""
+
+#: ../../source/hardware.md:27
+msgid ""
+"Always verify the latest Seeed XIAO ESP32S3 pinout and the Wio SX1262 "
+"wiring in case of board revisions."
+msgstr ""
+
+#: ../../source/hardware.md:29
+msgid "Buses and Speeds"
+msgstr ""
+
+#: ../../source/hardware.md:30
+msgid ""
+"I2C: standard 100 kHz (default), higher modes may be possible depending "
+"on wiring and sensor tolerance."
+msgstr ""
+
+#: ../../source/hardware.md:31
+msgid "UART (GNSS): 115200 bps."
+msgstr ""
+
+#: ../../source/hardware.md:32
+msgid ""
+"SPI: default settings for RadioLib + SX1262; adjust via firmware if "
+"needed."
+msgstr ""
+
+#: ../../source/hardware.md:34
+msgid "Power Notes"
+msgstr ""
+
+#: ../../source/hardware.md:35
+msgid "3.3 V logic throughout."
+msgstr ""
+
+#: ../../source/hardware.md:36
+msgid "Ensure your PMIC/charger supports your chosen chemistry (LiPo/LiFePO/SLA)."
+msgstr ""
+
+#: ../../source/hardware.md:37
+msgid ""
+"Keep wiring short; consider shielding if the magnetic environment is "
+"noisy."
+msgstr ""
+

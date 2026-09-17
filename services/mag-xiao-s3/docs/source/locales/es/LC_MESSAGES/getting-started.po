@@ -1,0 +1,121 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, David Witten and contributors
+# This file is distributed under the same license as the mag-xiao-s3
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mag-xiao-s3 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-08 10:49-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/getting-started.md:5
+msgid "Getting Started"
+msgstr ""
+
+#: ../../source/getting-started.md:7
+msgid ""
+"This guide helps you build, flash, and verify the firmware on a Seeed "
+"Studio XIAO ESP32S3."
+msgstr ""
+
+#: ../../source/getting-started.md:9
+msgid "Prerequisites"
+msgstr ""
+
+#: ../../source/getting-started.md:10
+msgid "PlatformIO CLI (`pio`) or VS Code with the PlatformIO extension"
+msgstr ""
+
+#: ../../source/getting-started.md:11
+msgid "A Seeed Studio XIAO ESP32S3 board"
+msgstr ""
+
+#: ../../source/getting-started.md:12
+msgid "Optional sensors and modules:"
+msgstr ""
+
+#: ../../source/getting-started.md:13
+msgid "PNI RM3100-CB (I2C)"
+msgstr ""
+
+#: ../../source/getting-started.md:14
+msgid "Microchip MCP9808/MCP9804 (I2C)"
+msgstr ""
+
+#: ../../source/getting-started.md:15
+msgid "Seeed L76K GNSS (UART + PPS)"
+msgstr ""
+
+#: ../../source/getting-started.md:16
+msgid "Seeed Wio SX1262 (LoRa)"
+msgstr ""
+
+#: ../../source/getting-started.md:18
+msgid "Clone and Build"
+msgstr ""
+
+#: ../../source/getting-started.md:24
+msgid "Upload"
+msgstr ""
+
+#: ../../source/getting-started.md:25
+msgid ""
+"Most systems auto-detect the port. If not detected, double-tap the reset "
+"button to enter bootloader mode and retry."
+msgstr ""
+
+#: ../../source/getting-started.md:30
+msgid "Serial Monitor"
+msgstr ""
+
+#: ../../source/getting-started.md:31
+msgid "Default baud is 115200 unless you changed it in the sketch."
+msgstr ""
+
+#: ../../source/getting-started.md:36
+msgid "Host-Native Unit Tests"
+msgstr ""
+
+#: ../../source/getting-started.md:37
+msgid "Run fast tests on your host machine (no hardware required):"
+msgstr ""
+
+#: ../../source/getting-started.md:42
+msgid "Configuration Mode"
+msgstr ""
+
+#: ../../source/getting-started.md:43
+msgid ""
+"On first boot, or when you press the configuration button (GPIO42), the "
+"device presents a Wi‑Fi access point for configuration. Use the web page "
+"to set:"
+msgstr ""
+
+#: ../../source/getting-started.md:44
+msgid "Node identification and owner"
+msgstr ""
+
+#: ../../source/getting-started.md:45
+msgid "Location (latitude, longitude, elevation)"
+msgstr ""
+
+#: ../../source/getting-started.md:46
+msgid "Orientation (90° rotations per axis)"
+msgstr ""
+
+#: ../../source/getting-started.md:47
+msgid "LoRa radio parameters"
+msgstr ""
+

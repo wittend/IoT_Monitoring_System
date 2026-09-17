@@ -1,0 +1,32 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, David Witten and contributors
+# This file is distributed under the same license as the mag-xiao-s3
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mag-xiao-s3 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-08 10:49-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/api.rst:4
+msgid "API Reference"
+msgstr ""
+
+#: ../../source/api.rst:6
+msgid ""
+"The following reference is generated from the source code using Doxygen "
+"and integrated via Breathe."
+msgstr ""
+

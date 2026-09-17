@@ -1,0 +1,586 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2026, David Witten and contributors
+# This file is distributed under the same license as the mag-xiao-s3
+# package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: mag-xiao-s3 \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-08 10:49-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ro\n"
+"Language-Team: ro <LL@li.org>\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100"
+" < 20)) ? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../source/requirements.md:5
+msgid "Requirements"
+msgstr ""
+
+#: ../../requirements.md:2
+msgid "Magnetometer Firmware Requirements (mag-xiao-s3)"
+msgstr ""
+
+#: ../../requirements.md:4
+msgid "1. Overview"
+msgstr ""
+
+#: ../../requirements.md:5
+msgid "Problem statement:"
+msgstr ""
+
+#: ../../requirements.md:6
+msgid ""
+"Create firmware for a Seeed Studio XIAO ESP32S3 module to act as an IoT "
+"edge data collector for a small number of sensors."
+msgstr ""
+
+#: ../../requirements.md:7
+msgid ""
+"Its function will be to interrogate these sensors and relay the data to "
+"an aggregating network for relay to a central host."
+msgstr ""
+
+#: ../../requirements.md:8
+msgid ""
+"It must use a low bandwidth radio frequency protocol such as LoRa for "
+"this transfer."
+msgstr ""
+
+#: ../../requirements.md:9
+msgid ""
+"It must provide power management to maintain sufficient charge in battery"
+" storage (using LiPO, LiFePO, NaPO, SLA, etc.) from a small solar panel."
+msgstr ""
+
+#: ../../requirements.md:10
+msgid ""
+"It must support a small local GNSS receiver to maintain local time and "
+"provide PPS triggering of transmissions."
+msgstr ""
+
+#: ../../requirements.md:12
+msgid "2. Hardware"
+msgstr ""
+
+#: ../../requirements.md:13
+msgid "Board: Seeed Studio XIAO ESP32S3"
+msgstr ""
+
+#: ../../requirements.md:14
+msgid "Sensors/ICs:"
+msgstr ""
+
+#: ../../requirements.md:15
+msgid "PNI RM3100cb (magnetometer)"
+msgstr ""
+
+#: ../../requirements.md:16
+msgid "Microchip MCP9804/MCP9808 temperature sensor."
+msgstr ""
+
+#: ../../requirements.md:17
+msgid "Seeed Studio L76K GPS/GNSS module for XIAO."
+msgstr ""
+
+#: ../../requirements.md:18
+msgid "Seeed Studio Wio-SX1262 for XIAO (uses Semtech SX1262 module)"
+msgstr ""
+
+#: ../../requirements.md:20
+msgid "Power: (battery/USB), voltage(s)"
+msgstr ""
+
+#: ../../requirements.md:21
+msgid "Uing LiPO, LiFePO, NaPO, SLA, etc. battery."
+msgstr ""
+
+#: ../../requirements.md:22
+msgid "3.3 v operation."
+msgstr ""
+
+#: ../../requirements.md:23
+msgid "Solar panel and conditioning  as required."
+msgstr ""
+
+#: ../../requirements.md:25
+msgid "Wiring: diagram/photo + table (pin → signal)"
+msgstr ""
+
+#: ../../requirements.md:27
+msgid "Buses: I2C/UART; target clock rates; pull-ups"
+msgstr ""
+
+#: ../../requirements.md:28
+msgid "I2C bus default timing."
+msgstr ""
+
+#: ../../requirements.md:29
+msgid "UART (if required for GNSS) 115200 bps."
+msgstr ""
+
+#: ../../requirements.md:31
+msgid "Notes: level shifting, analog refs, shielding"
+msgstr ""
+
+#: ../../requirements.md:32
+msgid "not at present."
+msgstr ""
+
+#: ../../requirements.md:34
+msgid "3. Functional Requirements"
+msgstr ""
+
+#: ../../requirements.md:35
+msgid ""
+"REQ-001 [MUST]: sample sensors once per second and send data samples from"
+" RM3100, MCP9804/8 within that interval."
+msgstr ""
+
+#: ../../requirements.md:37
+msgid ""
+"REQ-002 [MUST]:  Use GNSS PPS signal to trigger sample transmission and "
+"acquisition cadence."
+msgstr ""
+
+#: ../../requirements.md:39
+msgid "REQ-003 [MUST]:  Data shall be sent as JSON objects."
+msgstr ""
+
+#: ../../requirements.md:41
+msgid ""
+"REQ-004 [SHOULD]: Check GNSS at startup and 1/hour to set local real time"
+" clock to maintain timing accuracy."
+msgstr ""
+
+#: ../../requirements.md:44
+msgid "4. Non-Functional Requirements"
+msgstr ""
+
+#: ../../requirements.md:45
+msgid "Performance: sample rate 1 Hz"
+msgstr ""
+
+#: ../../requirements.md:46
+msgid "Accuracy: ±(TBD) (units), stability (TBD)"
+msgstr ""
+
+#: ../../requirements.md:47
+msgid "Power: avg (TBD) mA, sleep (tbd) mA"
+msgstr ""
+
+#: ../../requirements.md:48
+msgid "Memory: max RAM (TBD) KB, flash (TBD) KB"
+msgstr ""
+
+#: ../../requirements.md:49
+msgid "Startup time: < (TBD) ms to ready"
+msgstr ""
+
+#: ../../requirements.md:50
+msgid "Reliability: watchdog, brown-out behavior"
+msgstr ""
+
+#: ../../requirements.md:51
+msgid "Advertised RM3100-cb performance:"
+msgstr ""
+
+#: ../../requirements.md:52
+msgid "Sensitivity\t13nT"
+msgstr ""
+
+#: ../../requirements.md:53
+msgid "Noise\t15nT"
+msgstr ""
+
+#: ../../requirements.md:54
+msgid "Linearity over +/- 200 uT\t0.50%"
+msgstr ""
+
+#: ../../requirements.md:55
+msgid "Field Measurement Range\t+/- 1100 uT"
+msgstr ""
+
+#: ../../requirements.md:56
+msgid "Current @ 8Hz, 3 Axes\t260 uA"
+msgstr ""
+
+#: ../../requirements.md:57
+msgid "Operating Temperature\t-40°C to +85°C"
+msgstr ""
+
+#: ../../requirements.md:59
+msgid "5. Interfaces & Protocols"
+msgstr ""
+
+#: ../../requirements.md:60
+#, python-brace-format
+msgid ""
+"Baseline schema { \"ts\": \"DD Mon YYYY HH:MM:SS\", \"rt\": <float> "
+"\"x\": <float>, \"y\": <float>, \"z\": <float> } ts (string): UTC "
+"timestamp formatted like 25 Oct 2025 14:02:33 (RFC‑2822‑like time portion"
+" without timezone offset)."
+msgstr ""
+
+#: ../../requirements.md:64
+msgid "rt (number): temperature (degrees C) of remote node."
+msgstr ""
+
+#: ../../requirements.md:66
+msgid ""
+"x, y, z (number): Field components in nanoTesla (nT), with 3 decimal "
+"places printed."
+msgstr ""
+
+#: ../../requirements.md:68
+msgid "Example:"
+msgstr ""
+
+#: ../../requirements.md:70
+#, python-brace-format
+msgid ""
+"{ \"ts\":\"26 Oct 2025 14:20:00\", \"rt\": 25.000, \"x\":12345.678, "
+"\"y\":-234.500, \"z\":987.001 }"
+msgstr ""
+
+#: ../../requirements.md:72
+msgid "5.1 USB/Serial"
+msgstr ""
+
+#: ../../requirements.md:73
+msgid "Baud: 115200 (or other)"
+msgstr ""
+
+#: ../../requirements.md:74
+msgid "Message format (JSON/binary):"
+msgstr ""
+
+#: ../../requirements.md:75
+msgid "Example request:"
+msgstr ""
+
+#: ../../requirements.md:79
+msgid "Example response:"
+msgstr ""
+
+#: ../../requirements.md:83
+msgid "Timeouts, retries, error codes"
+msgstr ""
+
+#: ../../requirements.md:85
+msgid "5.2 Other interfaces (BLE or Wi‑Fi)"
+msgstr ""
+
+#: ../../requirements.md:87
+msgid ""
+"A Wifi or BLE interface must be provided at initial start up to allow "
+"configuration of operational parameters, node identification, location "
+"(latitude, longitude, elevation) and owner, perhaps more."
+msgstr ""
+
+#: ../../requirements.md:89
+msgid ""
+"A button connected to a GPIO pin (TBD) allows the user to reset the "
+"device to configuration mode and causes it tp present the HTML page that "
+"allows entry of configuration information."
+msgstr ""
+
+#: ../../requirements.md:92
+msgid "6. Data Processing & Algorithms"
+msgstr ""
+
+#: ../../requirements.md:94
+msgid "Orientation and Axes"
+msgstr ""
+
+#: ../../requirements.md:96
+msgid ""
+"This explains how the device handles magnetometer orientation and how to "
+"configure 90° rotations around each axis."
+msgstr ""
+
+#: ../../requirements.md:98
+msgid "Axis conventions"
+msgstr ""
+
+#: ../../requirements.md:99
+msgid "The RM3100 outputs three orthogonal components X, Y, Z."
+msgstr ""
+
+#: ../../requirements.md:100
+msgid "mag-usb treats these axes as a right‑handed coordinate system."
+msgstr ""
+
+#: ../../requirements.md:101
+msgid ""
+"Positive rotations follow the right‑hand rule (thumb points along the "
+"axis of rotation; curl of fingers is direction of positive rotation)."
+msgstr ""
+
+#: ../../requirements.md:103
+msgid "Why orientation adjustments?"
+msgstr ""
+
+#: ../../requirements.md:104
+msgid ""
+"Depending on how the sensor PCB is mounted in your enclosure, its axes "
+"may not align with your desired reference frame. mag-usb can rotate the "
+"measured vector by multiples of 90° around the X, Y, and Z axes to align "
+"with your installation."
+msgstr ""
+
+#: ../../requirements.md:106
+msgid "Configuration"
+msgstr ""
+
+#: ../../requirements.md:107
+msgid "Set the following keys in `config.toml` under `[mag_orientation]`:"
+msgstr ""
+
+#: ../../requirements.md:114
+msgid "Rules:"
+msgstr ""
+
+#: ../../requirements.md:115
+msgid ""
+"Allowed values: `-180, -90, 0, 90, 180`. Any other value is treated as "
+"`0`."
+msgstr ""
+
+#: ../../requirements.md:116
+msgid "`180` and `-180` are treated the same (flip both perpendicular axes)."
+msgstr ""
+
+#: ../../requirements.md:117
+msgid ""
+"Rotations are applied in this order: rotate around X, then around Y, then"
+" around Z."
+msgstr ""
+
+#: ../../requirements.md:118
+msgid "The rotations affect the other two components:"
+msgstr ""
+
+#: ../../requirements.md:119
+msgid "Rotate around X → affects Y and Z."
+msgstr ""
+
+#: ../../requirements.md:120
+msgid "Rotate around Y → affects X and Z."
+msgstr ""
+
+#: ../../requirements.md:121
+msgid "Rotate around Z → affects X and Y."
+msgstr ""
+
+#: ../../requirements.md:123
+msgid "Examples"
+msgstr ""
+
+#: ../../requirements.md:124
+msgid "Let the input vector be `(X, Y, Z)`."
+msgstr ""
+
+#: ../../requirements.md:126
+msgid "Rotate +90° about X:"
+msgstr ""
+
+#: ../../requirements.md:127
+msgid "`(X, Y, Z)` → `(X, -Z, Y)`"
+msgstr ""
+
+#: ../../requirements.md:128
+msgid "Rotate -90° about X:"
+msgstr ""
+
+#: ../../requirements.md:129
+msgid "`(X, Y, Z)` → `(X, Z, -Y)`"
+msgstr ""
+
+#: ../../requirements.md:130
+msgid "Rotate 180° about X:"
+msgstr ""
+
+#: ../../requirements.md:131
+msgid "`(X, Y, Z)` → `(X, -Y, -Z)`"
+msgstr ""
+
+#: ../../requirements.md:133
+msgid "Magnetic Field Units: nanotesla (nT)."
+msgstr ""
+
+#: ../../requirements.md:136
+msgid "7. User Interaction"
+msgstr ""
+
+#: ../../requirements.md:137
+msgid "HTML Form configuration interface:"
+msgstr ""
+
+#: ../../requirements.md:138
+msgid "node identification"
+msgstr ""
+
+#: ../../requirements.md:139
+msgid "location (latitude, longitude, elevation)"
+msgstr ""
+
+#: ../../requirements.md:140
+msgid "owner"
+msgstr ""
+
+#: ../../requirements.md:141
+msgid "orientation"
+msgstr ""
+
+#: ../../requirements.md:142
+msgid "LoRa signal parameters"
+msgstr ""
+
+#: ../../requirements.md:144
+msgid ""
+"after initial boot or button reset the system presents the configuration "
+"HTML page to allow input of operating parameters."
+msgstr ""
+
+#: ../../requirements.md:146
+msgid "8. Calibration & Test Procedures"
+msgstr ""
+
+#: ../../requirements.md:147
+msgid "Procedure steps (with timings) (TBD)"
+msgstr ""
+
+#: ../../requirements.md:148
+msgid "Acceptance thresholds (TBD)"
+msgstr ""
+
+#: ../../requirements.md:150
+msgid "9. Validation & Acceptance Criteria"
+msgstr ""
+
+#: ../../requirements.md:151
+msgid "ACC-001 validates REQ-001: method, tool, threshold (TBD)"
+msgstr ""
+
+#: ../../requirements.md:152
+msgid "ACC-002 validates REQ-___: … (TBD)"
+msgstr ""
+
+#: ../../requirements.md:154
+msgid "10. Operating Conditions"
+msgstr ""
+
+#: ../../requirements.md:155
+msgid ""
+"Temperature range: 40 Degrees C to 45 degrees C (depending on battery "
+"subsystem)"
+msgstr ""
+
+#: ../../requirements.md:156
+msgid "Magnetic environment < 1 mT"
+msgstr ""
+
+#: ../../requirements.md:159
+msgid "11. Risks & Constraints"
+msgstr ""
+
+#: ../../requirements.md:160
+msgid "Library dependencies (with versions)"
+msgstr ""
+
+#: ../../requirements.md:161
+msgid "PlatformIO: version, espressif32 platform version (current)"
+msgstr ""
+
+#: ../../requirements.md:162
+msgid "Arduino‑ESP32 core version (current)"
+msgstr ""
+
+#: ../../requirements.md:163
+msgid ""
+"USB CDC on boot needed? (`ARDUINO_USB_MODE=1`, "
+"`ARDUINO_USB_CDC_ON_BOOT=1`) Yes"
+msgstr ""
+
+#: ../../requirements.md:165
+msgid "12. Deliverables"
+msgstr ""
+
+#: ../../requirements.md:166
+msgid "Firmware binary (.pio/build/seeed_xiao_esp32s3/firmware.bin)"
+msgstr ""
+
+#: ../../requirements.md:167
+msgid "Source code structure"
+msgstr ""
+
+#: ../../requirements.md:168
+msgid "Test results : on-device"
+msgstr ""
+
+#: ../../requirements.md:169
+msgid "User guide / quickstart"
+msgstr ""
+
+#: ../../requirements.md:171
+msgid "13. References"
+msgstr ""
+
+#: ../../requirements.md:172
+msgid "data concerning reading RM3100 registers is contained in src/rm3100.h"
+msgstr ""
+
+#: ../../requirements.md:173
+msgid ""
+"example arduino code for reading the RM3100 device: "
+"docs/RM3100_Arduino_I2C.ino.txt"
+msgstr ""
+
+#: ../../requirements.md:174
+msgid "data concerning reading MCP9804/8 registers is contained in src/MCP9808.h"
+msgstr ""
+
+#: ../../requirements.md:175
+msgid ""
+"MCP9808 Temperature Sensor datasheet: "
+"https://ww1.microchip.com/downloads/en/DeviceDoc/MCP9808-0.5C-Maximum-"
+"Accuracy-Digital-Temperature-Sensor-Data-Sheet-DS20005095B.pdf"
+msgstr ""
+
+#: ../../requirements.md:176
+msgid ""
+"ESP32S3 XIAO Pinouts: "
+"https://wiki.seeedstudio.com/xiao_esp32s3_getting_started/"
+msgstr ""
+
+#: ../../requirements.md:177
+msgid ""
+"ESP32S3 WiFi information: "
+"https://wiki.seeedstudio.com/xiao_esp32s3_wifi_usage/"
+msgstr ""
+
+#: ../../requirements.md:178
+msgid ""
+"ESP32S3 Bluetooth LE information: "
+"https://wiki.seeedstudio.com/xiao_esp32s3_bluetooth/"
+msgstr ""
+
+#: ../../requirements.md:179
+msgid "LoRa Wio-sx1262 module: https://wiki.seeedstudio.com/wio_sx1262/"
+msgstr ""
+
+#: ../../requirements.md:180
+msgid ""
+"Seeed L76k GNSS board for XAIO: "
+"https://wiki.seeedstudio.com/get_start_l76k_gnss/#hardware-overview"
+msgstr ""
+
