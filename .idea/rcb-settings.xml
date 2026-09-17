@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ReactBuddyPluginProjectSettings">
+    <option name="componentSubDirectory" />
+  </component>
+  <component name="StorybookProjectConfigState">
+    <option name="componentSubDirectory" />
+    <option name="useCSF7plus" value="false" />
+  </component>
+</project>
